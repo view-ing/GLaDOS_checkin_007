@@ -2,6 +2,10 @@ name: 开始每日签到
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   schedule:
     # UTC 2点30分(北京时间 10点30分)
     - cron: 30 2 * * *
@@ -13,9 +17,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python 3.9
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
       - name: Install requirements
@@ -28,4 +32,4 @@ jobs:
         env: 
           GLADOS_COOKIE: "${{ secrets.GLADOS_COOKIE }}"
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-      - uses: gautamkrishnar/keepalive-workflow@master  
+      - uses: gautamkrishnar/keepalive-workflow@v2  
