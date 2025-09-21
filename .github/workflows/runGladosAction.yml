@@ -36,6 +36,6 @@ jobs:
           PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
       
       # - uses: liskin/gh-workflow-keepalive@v1
-      - uses: gautamkrishnar/keepalive-workflow@v2
+      # - uses: gautamkrishnar/keepalive-workflow@v2
       #   with:
       #     use_api: false
